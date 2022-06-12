@@ -1,0 +1,38 @@
+<?php
+$array = [278 ,576, 496, 727 ,410 ,124 ,338 ,149, 209 ,702 ,282 ,718 ,771, 575, 436];
+//278 ,576, 496, 727 ,410 ,124 ,338 ,149, 209 ,702 ,282 ,718 ,771, 575, 436
+
+$k = 7;
+$temp = [];
+$test = [];
+foreach ($array as $key => $r){
+    $new = array_slice($array, $key+1);
+    foreach ($new as $v){
+        $sum = $r +$v;
+        $result = $sum%$k;
+        echo $r .','.$v;
+        echo ' sum = '.$sum .' sum/k = '.$sum%$k.'<br>';
+        if($result != 0){
+            $temp[] = [$r,$v];
+        }
+        else{
+            
+        }
+    }
+}
+
+$pids = array();
+foreach ($temp as $key => $h) {
+        foreach ($h as $r){
+            $pids[] = $r;
+        }
+}
+$uniquePids = array_unique($pids);
+print "<pre>";
+print_r($uniquePids);
+print"</pre>";
+// print_r($temp);
+echo sizeof($uniquePids);
+// print "</pre>";
+
+?>
